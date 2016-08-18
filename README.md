@@ -1,0 +1,1 @@
+# egeeio-community-bingo
