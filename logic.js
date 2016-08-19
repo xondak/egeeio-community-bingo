@@ -50,42 +50,47 @@
 							winning = "You're a cheater";
 						}
 						
-						highlight = document.getElementsByClassName(conviction);
+						winState(conviction);
 
-						highlight.className += " win-tile";
-
-						window.confirm(winning);
 					}
 					if (colAdd.value === 5){ // Searches for a winning COLUMN
 						if (colOne.value === 5) {
+							conviction = "one";
 							winning = "Bingo on Column 1";
 						}
 						else if (colTwo.value === 5) {
+							conviction = "two";
 							winning = "Bingo on Column 2";
 						}
 						else if (colThree.value === 5) {
+							conviction = "three";
 							winning = "Bingo on Column 3";
 						}
 						else if (colFour.value === 5) {
+							conviction = "four";
 							winning = "Bingo on Column 4";
 						}
 						else if (colFive.value === 5) {
+							conviction = "five";
 							winning = "Bingo on Column 5";
 						}
 						else {
 							winning = "You're a cheater";
 						}
-						window.confirm(winning);
+						
+						winState(conviction);
 					}
 					
 					if (diagAdd.value === 5 || diagAdd === true){ // Detects a diagonal win (and a free space win if someone feels like being a fucking contrarian)
 						if (horOne.value === 5) {
 							winning = "Bingo on the Backslash";
-							window.confirm(winning);
+							conviction = "h-1";
+							winState(conviction);
 						}
 						else if (horTwo.value === 5) {
 							winning = "Bingo on the Forwardslash";
-							window.confirm(winning);
+							conviction = "h-2";
+							winState(conviction);
 						}
 
 					}
@@ -107,4 +112,16 @@
 						diagAdd.value--;
 					}
 				}
+			}
+			
+			function winState(conviction) { // Takes arguments from detection logic and adds a new class that is styled with a background color
+				highlight = document.getElementsByClassName(conviction);
+
+				var i;
+				for (i = 0; i < 5; i++) {
+					highlight[i].className += " win-tile";
+					setTimeout('', 800);
+				}
+				
+				//window.confirm(winning);
 			}

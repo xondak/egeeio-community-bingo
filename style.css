@@ -48,10 +48,6 @@ body{
 	position: relative;
 }
 
-.tile:hover{
-	background-color: #FFF;
-	
-}
 
 label input {
 	display: none;
